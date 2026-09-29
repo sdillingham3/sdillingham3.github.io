@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sam Dillingham | AI Product Portfolio</title>
+<meta name="description" content="AI product manager for security products. Case studies: NDR Copilot over MCP, VulnRadar, agentic threat intel, and a private multi-GPU AI platform.">
+<meta name="author" content="Sam Dillingham">
+<link rel="canonical" href="https://portfolio.yousecurity.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#2f5877">
+<!-- Open Graph / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sam Dillingham | AI Product Portfolio">
+<meta property="og:description" content="AI product manager for security products. Case studies: NDR Copilot over MCP, VulnRadar, agentic threat intel, and a private multi-GPU AI platform.">
+<meta property="og:url" content="https://portfolio.yousecurity.com/">
+<meta property="og:image" content="https://portfolio.yousecurity.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://portfolio.yousecurity.com/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --ground:#f4f6f8; --surface:#ffffff; --sunk:#e9eef2; --ink:#16202a; --muted:#56646f; --line:#d3dce3;
+  --steel:#5a8ab0; --steel-deep:#2f5877; --steel-wash:#e3edf5; --amber:#a8621a; --amber-wash:#f7ebdc;
+  --display:"IBM Plex Sans Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#0f151b; --surface:#16202a; --sunk:#1c2833; --ink:#e2e9ef; --muted:#9aa9b5; --line:#2a3845;
+    --steel:#7fa8c9; --steel-deep:#a9c7df; --steel-wash:#1d3244; --amber:#e0a260; --amber-wash:#3a2a18;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#0f151b; --surface:#16202a; --sunk:#1c2833; --ink:#e2e9ef; --muted:#9aa9b5; --line:#2a3845;
+  --steel:#7fa8c9; --steel-deep:#a9c7df; --steel-wash:#1d3244; --amber:#e0a260; --amber-wash:#3a2a18;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:17px/1.6 var(--body);}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:24px;padding-block:0 64px}
+@media (max-width:520px){.wrap{padding-inline:16px}}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+a{color:var(--steel-deep)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--steel);outline-offset:2px}
+.mono{font-family:var(--mono)}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* Masthead */
+.mast{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:20px;border-bottom:1px solid var(--line)}
+.mast .brand{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.mast nav{display:flex;gap:18px;flex-wrap:wrap}
+.mast nav a{font-family:var(--mono);font-size:13px;text-decoration:none;color:var(--ink)}
+.mast nav a:hover{color:var(--steel-deep);text-decoration:underline}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;padding-block:56px 40px;align-items:end}
+@media (max-width:820px){.hero{grid-template-columns:1fr;gap:28px;padding-block:36px 28px}}
+.hero h1{font-size:clamp(34px,5.4vw,58px);font-weight:700;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--steel)}
+.hero p.lede{font-size:19px;max-width:60ch;margin:18px 0 0;color:var(--ink)}
+.hero .roles{margin-top:20px;display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:12px;padding:3px 9px;border:1px solid var(--line);border-radius:3px;color:var(--muted);background:var(--surface);white-space:nowrap}
+.ledger{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:20px 22px}
+.ledger dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-variant-numeric:tabular-nums}
+.ledger dt{font-family:var(--mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding-top:3px}
+.ledger dd{margin:0;font-size:15px}
+
+/* Method strip */
+.method{border-block:1px solid var(--line);padding-block:22px;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+@media (max-width:820px){.method{grid-template-columns:repeat(2,1fr)}}
+.method div{font-size:14px;color:var(--muted)}
+.method b{display:block;font-family:var(--display);font-size:17px;color:var(--ink);font-weight:600;margin-bottom:2px}
+
+/* Sections */
+section.block{padding-top:56px}
+.sechead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.sechead h2{font-size:30px;font-weight:600}
+.sechead p{margin:0;color:var(--muted);max-width:52ch;font-size:15px}
+
+/* Case study */
+.case{background:var(--surface);border:1px solid var(--line);border-radius:4px;margin-bottom:22px;overflow:hidden}
+.case header{padding:24px 26px 18px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start;border-bottom:1px solid var(--line)}
+.case header h3{font-size:25px;font-weight:600}
+.case header .sub{margin:6px 0 0;color:var(--muted);font-size:16px;max-width:62ch}
+.status{font-family:var(--mono);font-size:12px;padding:4px 10px;border-radius:3px;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.status::before{content:"";width:8px;height:8px;display:inline-block}
+.status.live{background:var(--steel-wash);color:var(--steel-deep)}
+.status.live::before{background:var(--steel);border-radius:50%}
+.status.dev{background:var(--amber-wash);color:var(--amber)}
+.status.dev::before{border:2px solid var(--amber);border-radius:0;width:6px;height:6px;transform:rotate(45deg)}
+.status.done{background:var(--sunk);color:var(--muted)}
+.status.done::before{background:var(--muted);width:8px;height:2px}
+.case .body{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+@media (max-width:820px){.case .body{grid-template-columns:1fr}}
+.case .cell{padding:18px 26px;border-right:1px solid var(--line)}
+.case .cell:last-child{border-right:0}
+@media (max-width:820px){.case .cell{border-right:0;border-bottom:1px solid var(--line)}.case .cell:last-child{border-bottom:0}}
+.case .cell h4{margin:0 0 8px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--steel-deep)}
+.case .cell p{margin:0 0 10px;font-size:15.5px}
+.case .cell ul{margin:0;padding-left:18px;font-size:15.5px}
+.case .cell li{margin-bottom:6px}
+.case .decisions{padding:18px 26px;border-top:1px solid var(--line);background:var(--sunk)}
+.case .decisions h4{margin:0 0 10px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--steel-deep)}
+.dgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px}
+@media (max-width:700px){.dgrid{grid-template-columns:1fr}}
+.dgrid div{font-size:15px}
+.dgrid b{font-weight:600}
+.case footer{padding:14px 26px;border-top:1px solid var(--line);display:flex;gap:6px;flex-wrap:wrap}
+.diagram{padding:20px 26px 8px;border-bottom:1px solid var(--line);overflow-x:auto}
+.diagram svg{display:block;min-width:720px;width:100%;height:auto}
+.diagram .cap{font-size:13px;color:var(--muted);margin:6px 0 10px}
+
+/* Tool grid */
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:900px){.tools{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.tools{grid-template-columns:1fr}}
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.tool h3{font-size:18px;font-weight:600}
+.tool p{margin:0;font-size:15px;color:var(--muted);flex:1}
+.tool .meta{display:flex;gap:6px;flex-wrap:wrap}
+
+/* Research */
+.research{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:700px){.research{grid-template-columns:1fr}}
+.research article{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:20px 22px}
+.research h3{font-size:20px;font-weight:600;margin-bottom:8px}
+.research p{margin:0 0 10px;font-size:15.5px}
+
+/* Frameworks */
+.fw{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+@media (max-width:760px){.fw{grid-template-columns:repeat(2,1fr)}}
+.fw div{padding:14px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:14.5px}
+.fw b{display:block;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--steel-deep);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+
+.contact{margin-top:56px;padding:26px;border-radius:4px;background:var(--steel-deep);color:#fff;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+:root[data-theme="dark"] .contact{background:var(--steel-wash);color:var(--ink)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .contact{background:var(--steel-wash);color:var(--ink)}}
+.contact h2{font-size:26px;font-weight:600}
+.contact p{margin:6px 0 0;opacity:.85;max-width:56ch;font-size:15.5px}
+.contact .addr{font-family:var(--mono);font-size:15px;user-select:all;padding:8px 12px;border:1px solid currentColor;border-radius:3px}
+.fine{margin-top:18px;font-size:13px;color:var(--muted)}
+</style>
+<style>html{scroll-behavior:smooth}@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="mast">
+  <div class="brand">Sam Dillingham · CISSP · Nashua, NH</div>
+  <nav aria-label="Sections">
+    <a href="#flagship">Case studies</a>
+    <a href="#tools">Applied AI tools</a>
+    <a href="#research">Research</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div>
+    <div class="label">AI Product Manager · Security</div>
+    <h1>Product manager for AI security products, <em>with working systems to show for it.</em></h1>
+    <p class="lede">Thirty years in security, with product roles at IBM X-Force, RSA NetWitness, and Pondurance. I don't only write specs for agentic AI. I build it on my own hardware, threat-model it, and use it every day. Each project below is written up as a product case study: the problem, the user, the calls I made, and what I'd do next.</p>
+    <div class="roles">
+      <span class="chip">AI Platform PM</span>
+      <span class="chip">AI Security Advisory</span>
+      <span class="chip">Solutions Architecture</span>
+    </div>
+  </div>
+  <aside class="ledger" aria-label="At a glance">
+    <dl>
+      <dt>Now</dt><dd>Principal, Yousecurity (independent AI and security advisory)</dd>
+      <dt>Product</dt><dd>IBM X-Force Exchange, IBM XGS malware analysis, RSA NetWitness, Pondurance MDR</dd>
+      <dt>Builds</dt><dd>Agentic workflows, MCP servers, RAG, local LLM infrastructure</dd>
+      <dt>Frames</dt><dd>OWASP LLM Top 10, NIST AI RMF, ISO/IEC 42001, MITRE ATT&amp;CK</dd>
+    </dl>
+  </aside>
+</header>
+
+<div class="method" aria-label="How each case study is structured">
+  <div><b>Problem</b>What hurts, and for whom</div>
+  <div><b>User</b>Who acts on the output</div>
+  <div><b>Build</b>Smallest thing that proves it</div>
+  <div><b>Decisions</b>Tradeoffs made on purpose</div>
+  <div><b>Next</b>What ships in v2</div>
+</div>
+
+<!-- ============ FLAGSHIP ============ -->
+<section class="block" id="flagship">
+  <div class="sechead">
+    <h2>Flagship case studies</h2>
+    <p>End-to-end systems, each running in my lab. Code and write-ups are on GitHub; demos are available on request.</p>
+  </div>
+
+  <!-- 1. NDR copilot -->
+  <article class="case" id="ndr">
+    <header>
+      <div>
+        <h3>NDR Copilot: ask your network questions in plain English</h3>
+        <p class="sub">A small Corelight-style network detection stack that an AI agent can query safely through a read-only MCP server.</p>
+      </div>
+      <span class="status live">Running · demo on request</span>
+    </header>
+    <div class="diagram">
+      <svg viewBox="0 0 900 150" role="img" aria-label="Pipeline: switch SPAN port feeds a Zeek, Suricata and JA4 sensor, which ships logs to a DuckDB evidence store, exposed through a read-only MCP server to Claude Desktop and a local Hermes agent">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" style="fill:var(--steel)"/>
+          </marker>
+        </defs>
+        <g font-family="IBM Plex Mono, monospace" font-size="12">
+          <rect x="4" y="40" width="130" height="64" rx="3" style="fill:var(--sunk);stroke:var(--line)"/>
+          <text x="69" y="66" text-anchor="middle" style="fill:var(--ink)">Switch SPAN</text>
+          <text x="69" y="84" text-anchor="middle" style="fill:var(--muted)">mirrored port</text>
+
+          <rect x="178" y="40" width="160" height="64" rx="3" style="fill:var(--sunk);stroke:var(--line)"/>
+          <text x="258" y="62" text-anchor="middle" style="fill:var(--ink)">Sensor</text>
+          <text x="258" y="80" text-anchor="middle" style="fill:var(--muted)">Zeek + JA4</text>
+          <text x="258" y="95" text-anchor="middle" style="fill:var(--muted)">Suricata + ET Open</text>
+
+          <rect x="382" y="40" width="150" height="64" rx="3" style="fill:var(--sunk);stroke:var(--line)"/>
+          <text x="457" y="66" text-anchor="middle" style="fill:var(--ink)">Evidence store</text>
+          <text x="457" y="84" text-anchor="middle" style="fill:var(--muted)">DuckDB, JSON logs</text>
+
+          <rect x="576" y="40" width="150" height="64" rx="3" style="fill:var(--steel-wash);stroke:var(--steel)"/>
+          <text x="651" y="66" text-anchor="middle" style="fill:var(--steel-deep)">MCP server</text>
+          <text x="651" y="84" text-anchor="middle" style="fill:var(--steel-deep)">read-only allowlist</text>
+
+          <rect x="770" y="10" width="126" height="54" rx="3" style="fill:var(--surface);stroke:var(--line)"/>
+          <text x="833" y="33" text-anchor="middle" style="fill:var(--ink)">Claude Desktop</text>
+          <text x="833" y="50" text-anchor="middle" style="fill:var(--muted)">cloud model</text>
+          <rect x="770" y="82" width="126" height="54" rx="3" style="fill:var(--surface);stroke:var(--line)"/>
+          <text x="833" y="105" text-anchor="middle" style="fill:var(--ink)">Hermes agent</text>
+          <text x="833" y="122" text-anchor="middle" style="fill:var(--muted)">local model</text>
+        </g>
+        <g style="stroke:var(--steel)" stroke-width="1.6" fill="none">
+          <line x1="136" y1="72" x2="174" y2="72" marker-end="url(#ah)"/>
+          <line x1="340" y1="72" x2="378" y2="72" marker-end="url(#ah)"/>
+          <line x1="534" y1="72" x2="572" y2="72" marker-end="url(#ah)"/>
+          <path d="M728,64 L766,40" marker-end="url(#ah)"/>
+          <path d="M728,80 L766,106" marker-end="url(#ah)"/>
+        </g>
+      </svg>
+      <p class="cap">Metadata, not full packet capture: the same storage tradeoff commercial NDR makes to keep months of investigable history.</p>
+    </div>
+    <div class="body">
+      <div class="cell">
+        <h4>Problem</h4>
+        <p>Network evidence is the ground truth in an investigation, but getting answers out of it takes Zeek fluency and hand-written queries. Tier 1 analysts and IT generalists stall at the query language, not at the security judgment.</p>
+      </div>
+      <div class="cell">
+        <h4>What I built</h4>
+        <ul>
+          <li>Zeek, JA4 fingerprinting, and Suricata with ET Open rules on a low-power sensor, fed by a switch SPAN port</li>
+          <li>Log shipper into a DuckDB evidence store</li>
+          <li>MCP server exposing hunting tools (sensor health, connections, DNS, TLS, alerts) plus a web console</li>
+          <li>The same server wired to Claude Desktop and a fully local Hermes agent</li>
+        </ul>
+      </div>
+      <div class="cell">
+        <h4>Outcome</h4>
+        <p>Questions like "which hosts talked to a new external domain in the last hour?" return an evidence-backed answer in seconds, from either a cloud or a fully local model.</p>
+        <p>Built as a working demo for an NDR AI Platform PM interview, then kept running as my home network monitor.</p>
+      </div>
+    </div>
+    <div class="decisions">
+      <h4>Product and security decisions</h4>
+      <div class="dgrid">
+        <div><b>Read-only by design.</b> Log fields are attacker-controlled input, so an agent reading them is exposed to indirect prompt injection (OWASP LLM01). The MCP server takes no write actions and uses an explicit tool allowlist.</div>
+        <div><b>Model-agnostic interface.</b> MCP let one tool surface serve both a frontier cloud model and a local 8B model, so data residency is the customer's choice, not a platform limit.</div>
+        <div><b>Coverage tradeoff, documented.</b> The switch allows one mirror source. I chose between edge (north-south) and a single host (full east-west) and wrote down the blind spot rather than hiding it.</div>
+        <div><b>Isolated deployment.</b> Runs as its own compose project, separate from the hardened AI stack, so a sensor failure can't take down inference and the reverse.</div>
+      </div>
+    </div>
+    <footer>
+      <span class="chip">Zeek</span><span class="chip">Suricata</span><span class="chip">JA4</span><span class="chip">DuckDB</span><span class="chip">MCP</span><span class="chip">Python</span><span class="chip">Docker Compose</span><span class="chip">Claude</span><span class="chip">Hermes / Qwen</span>
+    </footer>
+  </article>
+
+  <!-- 2. VulnRadar -->
+  <article class="case" id="vulnradar">
+    <header>
+      <div>
+        <h3>VulnRadar</h3>
+        <p class="sub">A local-LLM workflow that watches vulnerability and patch intelligence and tells a small team what to patch first.</p>
+      </div>
+      <span class="status live">Running · demo on request</span>
+    </header>
+    <div class="body">
+      <div class="cell">
+        <h4>Problem</h4>
+        <p>Thousands of CVEs a month, and a small IT team can act on a handful. Severity scores alone don't say which ones matter for this environment this week.</p>
+      </div>
+      <div class="cell">
+        <h4>What I built</h4>
+        <ul>
+          <li>n8n workflows pulling vulnerability and patch feeds</li>
+          <li>A local Qwen model that summarizes and ranks, so asset context never leaves the building</li>
+          <li>Two views: exposure (what's vulnerable) and remediation (what to patch)</li>
+        </ul>
+      </div>
+      <div class="cell">
+        <h4>Success measure</h4>
+        <p>Time from advisory to a ranked, plain-English action list for one environment.</p>
+      </div>
+    </div>
+    <footer>
+      <span class="chip">n8n</span><span class="chip">Qwen (local)</span><span class="chip">Ollama</span><span class="chip">Vulnerability management</span>
+    </footer>
+  </article>
+
+  <!-- 3. Threat intel agent -->
+  <article class="case" id="cti">
+    <header>
+      <div>
+        <h3>Agentic Threat Intelligence Analyst</h3>
+        <p class="sub">An n8n agent that turns an indicator or incident name into a structured intel report, grounded in retrieval rather than model memory.</p>
+      </div>
+      <span class="status dev">In development</span>
+    </header>
+    <div class="body">
+      <div class="cell">
+        <h4>Problem</h4>
+        <p>Enriching one indicator means VirusTotal, a web search, an ATT&amp;CK lookup, and a write-up, repeated dozens of times a day. Raw LLM answers hallucinate attribution, which is worse than no answer.</p>
+      </div>
+      <div class="cell">
+        <h4>What I'm building</h4>
+        <ul>
+          <li>n8n agent with tools for Tavily web search, the VirusTotal API, and MITRE ATT&amp;CK</li>
+          <li>Qdrant vector store of prior intel, loaded by a Python ingestion script</li>
+          <li>Custom Qdrant tool node for embedding generation inside the workflow</li>
+          <li>Fixed report format: incident, attribution, TTPs, impact, recommendations</li>
+        </ul>
+      </div>
+      <div class="cell">
+        <h4>Target outcome</h4>
+        <p>Consistent, citable reports in a format a SOC lead can forward without editing. Every claim traces back to a tool call or a retrieved document.</p>
+      </div>
+    </div>
+    <div class="decisions">
+      <h4>Product and security decisions</h4>
+      <div class="dgrid">
+        <div><b>Structure over prose.</b> A fixed report schema makes output comparable across incidents and easy to evaluate.</div>
+        <div><b>Retrieval before generation.</b> Attribution comes from sources in the context window, not from the model's training data.</div>
+        <div><b>Secrets out of the workflow.</b> API keys live in n8n credentials, never in exported workflow JSON.</div>
+        <div><b>Next:</b> an evaluation set of known incidents to score attribution accuracy release over release.</div>
+      </div>
+    </div>
+    <footer>
+      <span class="chip">n8n</span><span class="chip">Qdrant</span><span class="chip">VirusTotal API</span><span class="chip">MITRE ATT&amp;CK</span><span class="chip">Tavily</span><span class="chip">Python</span><span class="chip">RAG</span>
+    </footer>
+  </article>
+
+  <!-- 4. Private AI lab -->
+  <article class="case" id="lab">
+    <header>
+      <div>
+        <h3>Private AI Platform: a multi-host lab run like production</h3>
+        <p class="sub">Local inference, RAG, agents, and automation across several machines, built on least-privilege defaults. Also my test bench for models, model runners, and distributed inference.</p>
+      </div>
+      <span class="status live">Running · ongoing build</span>
+    </header>
+    <div class="body">
+      <div class="cell">
+        <h4>Problem</h4>
+        <p>Plenty of teams want AI on sensitive data but can't send it to a public API. They need to know what private AI costs, how it performs, and how it fails.</p>
+      </div>
+      <div class="cell">
+        <h4>What I built</h4>
+        <ul>
+          <li>Two GPU inference hosts, NVIDIA RTX 4070 Ti and RTX 5070, plus an Apple Silicon laptop for portable work</li>
+          <li>Side-by-side testing of open-weight models (Qwen, Gemma, Llama, Hermes, Phi, DeepSeek-R1 distills) and model runners (Ollama, LocalAI, LM Studio)</li>
+          <li>Open WebUI and AnythingLLM front ends, Qdrant RAG with nomic-embed-text</li>
+          <li>n8n automation and a Hermes agent with MCP tool access</li>
+          <li>Caddy reverse proxy and Tailscale for private remote access</li>
+        </ul>
+      </div>
+      <div class="cell">
+        <h4>Outcome</h4>
+        <p>A working reference architecture for private AI, and a model-fit matrix that matches open-weight models to available VRAM and use case.</p>
+        <p><b>In progress:</b> distributed inference across both GPU hosts, to serve models larger than either card can hold alone and measure the throughput cost of splitting them over the network.</p>
+      </div>
+    </div>
+    <div class="decisions">
+      <h4>Product and security decisions</h4>
+      <div class="dgrid">
+        <div><b>Removed public exposure.</b> Retired a Cloudflare Tunnel in favor of a Tailscale mesh, so no service is reachable from the internet.</div>
+        <div><b>Loopback by default.</b> Admin UIs bind to 127.0.0.1 behind Caddy rather than to every interface.</div>
+        <div><b>Incident, written up.</b> Diagnosed a Docker Desktop port-proxy failure where every container reported healthy while unreachable from the host. Lesson: healthchecks that run inside the network namespace can't see the path users take.</div>
+        <div><b>Right-sized models.</b> Picked 7B to 14B quantized models for the VRAM budget and tuned context length so the agent's 64K minimum fits.</div>
+        <div><b>Runner choice is a product decision.</b> Moved from LocalAI to Ollama after testing, trading configurability for simpler model management and faster native GPU support.</div>
+        <div><b>Scale out before buying up.</b> Distributed inference tests whether two mid-range GPUs can stand in for one expensive card, the same build-vs-buy question customers ask.</div>
+      </div>
+    </div>
+    <footer>
+      <span class="chip">Ollama</span><span class="chip">LocalAI</span><span class="chip">LM Studio</span><span class="chip">RTX 4070 Ti</span><span class="chip">RTX 5070</span><span class="chip">Distributed inference</span><span class="chip">Qwen</span><span class="chip">Open WebUI</span><span class="chip">AnythingLLM</span><span class="chip">Qdrant</span><span class="chip">n8n</span><span class="chip">Caddy</span><span class="chip">Tailscale</span><span class="chip">WSL2 / Docker</span>
+    </footer>
+  </article>
+</section>
+
+<!-- ============ APPLIED TOOLS ============ -->
+<section class="block" id="tools">
+  <div class="sechead">
+    <h2>Applied AI tools</h2>
+    <p>Smaller builds that automate my own workflows. Each one started as a repeated task I got tired of doing by hand.</p>
+  </div>
+  <div class="tools">
+    <div class="tool">
+      <span class="label">Agent skills</span>
+      <h3>Research skill suite</h3>
+      <p>Reusable Claude skills for company research before interviews, vetting recruiter outreach for scams, and structured public-records research. Each has a defined input, a fixed output schema, and sourcing rules.</p>
+      <div class="meta"><span class="chip">Claude</span><span class="chip">Skills</span></div>
+    </div>
+    <div class="tool">
+      <span class="label">Scheduled agent</span>
+      <h3>Daily Brief</h3>
+      <p>A morning briefing agent that combines weather for two locations, calendar, an unread-mail triage, and the day's top AI and security news into one page.</p>
+      <div class="meta"><span class="chip">Claude</span><span class="chip">Calendar</span><span class="chip">Gmail</span></div>
+    </div>
+    <div class="tool">
+      <span class="label">Evaluation</span>
+      <h3>LLM Compare</h3>
+      <p>Sends one prompt to several models and shows the answers side by side, for quick qualitative evaluation before choosing a model for a workflow.</p>
+      <div class="meta"><span class="chip">HTML / JS</span><span class="chip">Multi-model</span></div>
+    </div>
+    <div class="tool">
+      <span class="label">Data agent</span>
+      <h3>Gig Earnings Analyst</h3>
+      <p>An agent that turns delivery-app screenshots and logs into a clean spreadsheet, then computes effective hourly pay on active time versus total time online.</p>
+      <div class="meta"><span class="chip">Claude</span><span class="chip">Google Sheets</span></div>
+    </div>
+    <div class="tool">
+      <span class="label">Security tooling</span>
+      <h3>SurfaceScan</h3>
+      <p>An external attack-surface check built with Claude Code, part of a lightweight web security assessment offering for small businesses.</p>
+      <div class="meta"><span class="chip">Claude Code</span><span class="chip">AppSec</span></div>
+    </div>
+    <div class="tool">
+      <span class="label">Personal knowledge</span>
+      <h3>Lifebook</h3>
+      <p>A skill that files dated memories into a year-by-year autobiography and keeps a formatted Google Doc in sync. A long-running test of agent memory and document state.</p>
+      <div class="meta"><span class="chip">Claude</span><span class="chip">Skills</span><span class="chip">Google Docs</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESEARCH ============ -->
+<section class="block" id="research">
+  <div class="sechead">
+    <h2>Research and market intelligence</h2>
+    <p>The strategy side of product work: where the market is going, and what could go wrong.</p>
+  </div>
+  <div class="research">
+    <article>
+      <span class="label">AI security research</span>
+      <h3>Measuring LLM uplift for autonomous threat actors</h3>
+      <p>A research proposal on how much capability frontier models add to an attacker across the kill chain, and how to measure that uplift with repeatable evaluations mapped to MITRE ATT&amp;CK instead of anecdotes.</p>
+      <div class="meta"><span class="chip">AI safety</span><span class="chip">Evals</span><span class="chip">ATT&amp;CK</span></div>
+    </article>
+    <article>
+      <span class="label">Market intelligence</span>
+      <h3>MSSP and MDR Market Index</h3>
+      <p>A ranked landscape of 73 managed security providers covering services, positioning, and AI claims. The kind of competitive map a product team uses to choose where to differentiate and where to reach parity.</p>
+      <div class="meta"><span class="chip">Competitive analysis</span><span class="chip">MDR</span><span class="chip">Positioning</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ FRAMEWORKS ============ -->
+<section class="block" aria-labelledby="fwh">
+  <div class="sechead"><h2 id="fwh">What I bring to an AI product team</h2></div>
+  <div class="fw">
+    <div><b>Agentic systems</b>MCP, tool calling, n8n orchestration, agent skills</div>
+    <div><b>Retrieval</b>Chunking, embeddings, Qdrant, grounding and citation</div>
+    <div><b>Local inference</b>Ollama, quantized open-weight models, VRAM sizing</div>
+    <div><b>AI risk</b>OWASP LLM Top 10, NIST AI RMF, ISO/IEC 42001</div>
+    <div><b>Threat context</b>MITRE ATT&amp;CK, NDR, MDR, SOC operations</div>
+    <div><b>Product craft</b>PRDs, roadmaps, PMO build-outs, Agile transitions</div>
+    <div><b>Go to market</b>Pre-sales, competitive intel, analyst briefings</div>
+    <div><b>Credentials</b>CISSP; AWS Solutions Architect in progress</div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div>
+    <h2>Let's talk about your AI roadmap</h2>
+    <p>Open to AI product management, AI security, and solutions architecture roles. Remote, or in person in the Boston and southern New Hampshire area.</p>
+  </div>
+  <a class="addr" href="mailto:sam.dillingham@gmail.com" style="color:inherit;text-decoration:none">sam.dillingham@gmail.com</a>
+</section>
+<p class="fine">Lab details such as hostnames, addresses, and credentials are left out on purpose. Architecture walkthroughs are available in an interview.</p>
+
+</div>
+</body>
+</html>
